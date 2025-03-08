@@ -7,10 +7,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import org.example.model.Repository;
+import jakarta.ws.rs.core.Response;
 import org.example.service.RepositoryService;
-
-import java.util.List;
 
 @Path("/repos")
 @Produces(MediaType.APPLICATION_JSON)
@@ -21,7 +19,7 @@ public class RepositoryController {
 
     @GET
     @Path("/{username}")
-    public Uni<List<Repository>> getRepositories(@PathParam("username") String username) {
+    public Uni<Response> getRepositories(@PathParam("username") String username) {
         return repositoryService.getRepositories(username);
     }
 }
